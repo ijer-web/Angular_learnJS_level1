@@ -1,1 +1,6 @@
-# Angular_learnJS_level1
+# AngularCourse
+
+1 Install docker on your system
+
+2 Run `docker-compose up`
+
