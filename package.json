@@ -10,6 +10,8 @@
     "lint": "tslint './src/app/**/*.ts'",
     "e2e": "ng e2e --host frontend --disable-host-check --webdriver-update=false  --env=e2e --aot"
   },
+  "pre-commit": [
+  ],
   "private": true,
   "dependencies": {
     "@angular/animations": "5.0.1",
