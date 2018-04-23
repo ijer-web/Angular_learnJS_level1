@@ -1,0 +1,38 @@
+:host{
+  display: block;
+}
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
+}
+
+.name, .position, .price {
+  line-height: 45px;
+  margin: 0 20px;
+
+}
+.price {
+  cursor: pointer;
+}
+
+.background {
+  background-color: ghostwhite;
+}
+
+.tooltip-container .tooltip {
+  position: absolute;
+  top: -20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  line-height: 20px;
+  margin: 10px 0;
+  padding: 10px;
+  display: none;
+
+}
+.tooltip-container .tooltip.tooltip-active {
+  display: block;
+}
