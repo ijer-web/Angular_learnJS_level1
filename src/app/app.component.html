@@ -1,5 +1,5 @@
 <app-header>
-  <img [src]="logo" [width]="width" [alt]="desc" (click)="clickOnImage()">
+  <img [src]="logo | safeUrl" [width]="width" [alt]="desc" (click)="clickOnImage()">
   {{title}}
   <div class="right-side">
     <app-search [placeholder]="placeholder" (mySearch)="text=$event"></app-search>

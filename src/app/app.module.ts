@@ -8,6 +8,7 @@ import { SearchComponent } from './search/search.component';
 import { CardComponent } from './card/card.component';
 import { TooltipDirective } from './common/directives/tooltip.directive';
 import { ProductsFilterPipe } from './common/pipes/products-filter.pipe';
+import { SafeUrlPipe } from './common/pipes/safe-url.pipe';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ProductsFilterPipe } from './common/pipes/products-filter.pipe';
     SearchComponent,
     CardComponent,
     TooltipDirective,
-    ProductsFilterPipe],
+    ProductsFilterPipe,
+    SafeUrlPipe],
   imports: [
     BrowserModule,
     MaterialModule
