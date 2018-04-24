@@ -9,6 +9,7 @@ import { CardComponent } from './card/card.component';
 import { TooltipDirective } from './common/directives/tooltip.directive';
 import { ProductsFilterPipe } from './common/pipes/products-filter.pipe';
 import { SafeUrlPipe } from './common/pipes/safe-url.pipe';
+import { SortAlphabetPipe } from './common/pipes/sort-alphabet.pipe';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { SafeUrlPipe } from './common/pipes/safe-url.pipe';
     CardComponent,
     TooltipDirective,
     ProductsFilterPipe,
-    SafeUrlPipe],
+    SafeUrlPipe,
+    SortAlphabetPipe],
   imports: [
     BrowserModule,
     MaterialModule
