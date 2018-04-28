@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { products$ } from './data';
 import { Observable } from 'rxjs/Observable';
-
+import { ProductsService } from './common/services/products.service';
 
 @Component({
   selector: 'app-root',
@@ -17,11 +16,13 @@ export class AppComponent implements OnInit {
   public sortOrder: boolean = true;
   public width: number = 50;
   public desc: string = 'it is logo';
-  public products$: Observable<Product[]> = products$;
 
+  public products$: Observable<Product[]>;
+
+  public constructor( private _productsService: ProductsService) {}
 
   public ngOnInit(): void {
-
+     this.products$ = this._productsService.getProducts();
   }
 
   public clickOnImage(): void {

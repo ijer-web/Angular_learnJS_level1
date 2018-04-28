@@ -1,4 +1,4 @@
-import {Pipe, PipeTransform} from '@angular/core';
+import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
   name: 'sortAlphabet'
@@ -6,11 +6,10 @@ import {Pipe, PipeTransform} from '@angular/core';
 export class SortAlphabetPipe implements PipeTransform {
 
   public transform(products: Product[], order?: boolean): Product[] {
+
     products.sort(compareFunction);
-    console.log('sort');
 
     if (!order) {
-      console.log('reverse');
       products.reverse();
     }
     return products;

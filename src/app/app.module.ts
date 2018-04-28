@@ -1,15 +1,16 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
-import { MaterialModule } from './material/material.module';
-import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { SearchComponent } from './search/search.component';
-import { CardComponent } from './card/card.component';
-import { TooltipDirective } from './common/directives/tooltip.directive';
-import { ProductsFilterPipe } from './common/pipes/products-filter.pipe';
-import { SafeUrlPipe } from './common/pipes/safe-url.pipe';
-import { SortAlphabetPipe } from './common/pipes/sort-alphabet.pipe';
+import {MaterialModule} from './material/material.module';
+import {AppComponent} from './app.component';
+import {HeaderComponent} from './header/header.component';
+import {SearchComponent} from './search/search.component';
+import {CardComponent} from './card/card.component';
+import {TooltipDirective} from './common/directives/tooltip.directive';
+import {ProductsFilterPipe} from './common/pipes/products-filter.pipe';
+import {SafeUrlPipe} from './common/pipes/safe-url.pipe';
+import {SortAlphabetPipe} from './common/pipes/sort-alphabet.pipe';
+import {ProductsService} from './common/services/products.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,11 @@ import { SortAlphabetPipe } from './common/pipes/sort-alphabet.pipe';
     BrowserModule,
     MaterialModule
   ],
-  providers: [],
+  providers: [{
+    provide: ProductsService,
+    useClass: ProductsService
+  }],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {
+}
