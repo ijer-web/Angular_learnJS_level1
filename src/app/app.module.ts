@@ -1,16 +1,19 @@
-import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
 
-import {MaterialModule} from './material/material.module';
-import {AppComponent} from './app.component';
-import {HeaderComponent} from './header/header.component';
-import {SearchComponent} from './search/search.component';
-import {CardComponent} from './card/card.component';
-import {TooltipDirective} from './common/directives/tooltip.directive';
-import {ProductsFilterPipe} from './common/pipes/products-filter.pipe';
-import {SafeUrlPipe} from './common/pipes/safe-url.pipe';
-import {SortAlphabetPipe} from './common/pipes/sort-alphabet.pipe';
-import {ProductsService} from './common/services/products.service';
+import { MaterialModule } from './material/material.module';
+import { AppComponent } from './app.component';
+import { HeaderComponent } from './header/header.component';
+import { SearchComponent } from './search/search.component';
+import { CardComponent } from './card/card.component';
+import { TooltipDirective } from './common/directives/tooltip.directive';
+import { ProductsFilterPipe } from './common/pipes/products-filter.pipe';
+import { SafeUrlPipe } from './common/pipes/safe-url.pipe';
+import { SortAlphabetPipe } from './common/pipes/sort-alphabet.pipe';
+import { ProductsService } from './common/services/products.service';
+
+import { HttpClientModule } from '@angular/common/http';
+import { BASE_URL, BASE_URL_TOKEN } from '../config';
 
 @NgModule({
   declarations: [
@@ -24,12 +27,28 @@ import {ProductsService} from './common/services/products.service';
     SortAlphabetPipe],
   imports: [
     BrowserModule,
-    MaterialModule
+    MaterialModule,
+    HttpClientModule
   ],
   providers: [{
     provide: ProductsService,
     useClass: ProductsService
-  }],
+  },
+    {
+      provide: BASE_URL_TOKEN,
+      useValue: BASE_URL
+    },
+    {
+      provide: 'baseUrl',
+      useValue: 'localhost:5555',
+      multi: true
+    },
+    {
+      provide: 'baseUrl',
+      useValue: 'localhost:7777',
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {

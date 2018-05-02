@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
   public constructor( private _productsService: ProductsService) {}
 
   public ngOnInit(): void {
-     this.products$ = this._productsService.getProducts();
+    this.products$ = this._productsService.getProducts();
   }
 
   public clickOnImage(): void {
