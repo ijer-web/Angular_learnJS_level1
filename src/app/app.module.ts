@@ -12,8 +12,9 @@ import { SafeUrlPipe } from './common/pipes/safe-url.pipe';
 import { SortAlphabetPipe } from './common/pipes/sort-alphabet.pipe';
 import { ProductsService } from './common/services/products.service';
 
-import { HttpClientModule } from '@angular/common/http';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
 import { BASE_URL, BASE_URL_TOKEN } from '../config';
+import {HttpService} from './common/services/http.service';
 
 @NgModule({
   declarations: [
@@ -30,10 +31,13 @@ import { BASE_URL, BASE_URL_TOKEN } from '../config';
     MaterialModule,
     HttpClientModule
   ],
-  providers: [{
+  providers: [
+    {provide: HttpClient,
+    useClass: HttpService},
+    {
     provide: ProductsService,
     useClass: ProductsService
-  },
+    },
     {
       provide: BASE_URL_TOKEN,
       useValue: BASE_URL
