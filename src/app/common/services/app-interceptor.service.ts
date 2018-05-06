@@ -18,11 +18,9 @@ export class AppInterceptorService implements HttpInterceptor {
     const jsonReq: HttpRequest<T> = req.clone({ headers });
     return next.handle(jsonReq)
       .filter((res: HttpEvent<T>) => res instanceof HttpResponse)
-      .map((res: HttpResponse<T>) => {
-        return Object.assign(
-          res,
-          { body: res.body && res.body.data }
-        );
+      .map((res: HttpEvent<T>) => {
+          const resObj: HttpResponse<T> = res as HttpResponse<T>;
+          return resObj.clone({ body: resObj.body && resObj.body.data });
       })
       .catch((err: HttpErrorResponse) => {
         return Observable.throw(err);
